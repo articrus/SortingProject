@@ -23,8 +23,14 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		int generateRandNum(int min, int max);
 		void generateRadii();
-
 		void bubbleSort(vector<int>& nums);
+		void insertionSort(vector<int>& nums);
+		//Used for Merge Sorting algorithm
+		void merge(vector<int>& nums, int left, int mid, int right);
+		void mergeSort(vector<int>& nums, int left, int right);
+		//Used for Quick Sorting algorithm
+		int partition(vector<int>& nums, int low, int high);
+		void quickSort(vector<int>& nums, int low, int high);
 
 		std::vector<int> radii;
 		std::vector<float> circlePositions;
