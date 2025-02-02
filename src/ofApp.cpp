@@ -1,5 +1,11 @@
 #include "ofApp.h"
 #include <random>
+/*
+ * Written by: Gianni Coladonato 
+ * ID: 2414537
+ * Assignment 1, 03-02-2025
+*/
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 	generateRadii();
@@ -10,23 +16,26 @@ void ofApp::update(){
 
 }
 
-//--------------------------------------------------------------
+//-Draws the circles, their raduis determened by the radii vector, and draw their numbers/size on top of them
 void ofApp::draw(){
 	for (int i = 0; i < radii.size(); i++) {
-		ofDrawBitmapString(radii[i], 30 * i, 20);
+		ofSetColor(0,255,0);
+		ofDrawCircle(ofGetWidth() * (i+1)/6, ofGetHeight()/2, radii[i]);
+		ofSetColor(255, 255, 255);
+		ofDrawBitmapString(radii[i], ofGetWidth() * (i + 1) / 6, ofGetHeight() / 2);
 	}
 }
 
-//--------------------------------------------------------------
+//-Handle user input
 void ofApp::keyPressed(int key){
-	key = std::tolower(key);
+	key = std::tolower(key); //R and r are viewed as different keys
 	switch (key) {
 	case 'r': generateRadii(); break;
 	case 'b': bubbleSort(radii); break;
 	case 'i': insertionSort(radii); break;
 	case 'm': mergeSort(radii, 0, radii.size() - 1); break;
 	case 'q': quickSort(radii, 0, radii.size() - 1); break;
-	//optional FISHER-YATES case 's': generateRadii(); break;
+	//optional FISHER-YATES case 's': break;
 	}
 }
 
@@ -76,6 +85,7 @@ void ofApp::insertionSort(vector<int>& nums)
 	}
 }
 
+//-The merge aspect of the merge algorithm
 void ofApp::merge(vector<int>& nums, int left, int mid, int right) 
 {
 	int n1 = mid - left + 1;
@@ -116,6 +126,7 @@ void ofApp::merge(vector<int>& nums, int left, int mid, int right)
 	}
 }
 
+//-The main function of the merge algorithm
 void ofApp::mergeSort(vector<int>& nums, int left, int right) 
 {
 	if (left >= right)
@@ -126,6 +137,7 @@ void ofApp::mergeSort(vector<int>& nums, int left, int right)
 	merge(nums, left, mid, right);
 }
 
+//-The partition made when using the quicksort algorithm
 int ofApp::partition(vector<int>& nums, int low, int high) {
 	int pivot = nums[high];
 	int i = low - 1;
@@ -141,6 +153,7 @@ int ofApp::partition(vector<int>& nums, int low, int high) {
 	return (i + 1);
 }
 
+//-The main quicksort algorithm
 void ofApp::quickSort(vector<int>& nums, int low, int high)
 {
 	if (low < high) {

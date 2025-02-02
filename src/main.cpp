@@ -1,6 +1,10 @@
 #include "ofMain.h"
 #include "ofApp.h"
-
+/*
+ * Written by: Gianni Coladonato
+ * ID: 2414537
+ * Assignment 1, 03-02-2025
+*/
 //========================================================================
 int main( ){
 
