@@ -82,7 +82,7 @@ void ofApp::insertionSort(vector<int>& nums)
 	}
 }
 
-//-The merge aspect of the merge algorithm
+//-The merge aspect of the merge algorithm (Credit to W3 schools for this one)
 void ofApp::merge(vector<int>& nums, int left, int mid, int right) 
 {
 	int n1 = mid - left + 1;
@@ -133,7 +133,7 @@ void ofApp::mergeSort(vector<int>& nums, int left, int right)
 	merge(nums, left, mid, right);
 }
 
-//-The partition made when using the quicksort algorithm
+//-The partition made when using the quicksort algorithm (Credit to W3 schools for this one as well)
 int ofApp::partition(vector<int>& nums, int left, int right) {
 	int middle = nums[right];
 	int i = left - 1;
